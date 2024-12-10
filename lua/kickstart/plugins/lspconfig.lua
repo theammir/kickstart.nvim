@@ -224,6 +224,17 @@ return {
         -- },
         --   },
         -- },
+        texlab = {
+          settings = {
+            texlab = {
+              bibtexFormatter = 'latexindent',
+              chktex = {
+                onEdit = false,
+                onOpenAndSave = true,
+              },
+            },
+          },
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
