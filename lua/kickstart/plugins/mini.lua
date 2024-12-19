@@ -59,9 +59,6 @@ return {
         return '%2l:%-2v'
       end
 
-      require('mini.files').setup()
-      require 'kickstart.plugins.minifiles'
-
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
