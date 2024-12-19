@@ -59,6 +59,7 @@ return {
         { '<leader>d', group = '[D]ocument' },
         { '<leader>f', group = '[F]ind' },
         { '<leader>l', group = '[L]SP', mode = { 'n', 'x' } },
+        { '<localleader>l', group = '[L]SP', mode = { 'n', 'x' } },
         { '<leader>t', group = '[T]rouble' },
         { '<leader>u', group = '[U]tils' },
       },
