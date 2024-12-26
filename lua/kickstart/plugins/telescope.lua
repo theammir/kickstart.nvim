@@ -89,8 +89,8 @@ return {
       vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = 'Find [R]esume' })
       vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = 'Find Recent Files ("." for repeat)' })
 
-      vim.keymap.set('n', '<leader>e', '<cmd>Telescope file_browser<cr>', { desc = 'Open file browser' })
-      vim.keymap.set('n', '<leader>E', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = 'Open file browser at current buffer' })
+      vim.keymap.set('n', '<leader>E', '<cmd>Telescope file_browser<cr>', { desc = 'Open file browser' })
+      vim.keymap.set('n', '<leader>e', '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>', { desc = 'Open file browser at current buffer' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
