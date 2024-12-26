@@ -35,13 +35,11 @@ return {
         },
       }
 
-      vim.api.nvim_create_autocmd('FileType', {
-        pattern = { 'c', 'cpp' },
-        callback = function()
-          -- Map `<` to `<` in insert mode for C and C++ files
-          vim.api.nvim_buf_set_keymap(0, 'i', '<', '<', { noremap = true, silent = true })
-        end,
-      })
+      -- Create symmetrical `$$` pair only in Tex files
+      local map_tex = function()
+        MiniPairs.map_buf(0, 'i', '$', { action = 'closeopen', pair = '$$' })
+      end
+      vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', callback = map_tex })
 
       require('mini.align').setup()
 
