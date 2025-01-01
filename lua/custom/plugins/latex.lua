@@ -10,9 +10,11 @@ return {
       continuous = 1,
       executable = 'latexmk',
       options = {
-        '-pdf',
+        '-verbose',
+        '-file-line-error',
         '-interaction=nonstopmode',
         '-synctex=1',
+        '-shell-escape',
       },
     }
 
