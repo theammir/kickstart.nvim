@@ -28,7 +28,6 @@ return {
           vim.api.nvim_set_hl(0, 'LeapLabel', {
             -- For light themes, set to 'black' or similar.
             fg = 'red',
-            bg = 'bg',
           })
         end,
       })

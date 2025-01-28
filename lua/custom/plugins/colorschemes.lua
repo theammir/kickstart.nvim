@@ -38,6 +38,9 @@ return {
     'catppuccin/nvim',
     name = 'catppuccin.nvim',
     priority = 1000,
+    opts = {
+      transparent_background = true,
+    },
   },
   {
     'rmehri01/onenord.nvim',
