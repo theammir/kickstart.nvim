@@ -83,6 +83,9 @@ if vim.g.neovide then
   vim.g.neovide_cursor_vfx_particle_lifetime = 1.5
   vim.g.neovide_cursor_vfx_particle_speed = 75.0
 
+  vim.g.neovide_transparency = 0.7
+  vim.g.neovide_normal_transparency = 0.9
+
   vim.o.guifont = 'FiraCode Nerd Font:h11'
 end
 
