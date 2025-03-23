@@ -17,29 +17,30 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       -- require('mini.surround').setup()
 
-      require('mini.pairs').setup {
-        mappings = {
-          ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
-          ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
-          ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
-          ['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^%s<\\].', register = { cr = false } },
-
-          [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
-          [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
-          ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
-          ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^%s>\\].', register = { cr = false } },
-
-          ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
-          ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^%a\\].', register = { cr = false } },
-          ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
-        },
-      }
-
-      -- Create symmetrical `$$` pair only in Tex files
-      local map_tex = function()
-        MiniPairs.map_buf(0, 'i', '$', { action = 'closeopen', pair = '$$' })
-      end
-      vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', callback = map_tex })
+      -- require('mini.pairs').setup {
+      --   mappings = {
+      --     ['('] = { action = 'open', pair = '()', neigh_pattern = '[^\\].' },
+      --     ['['] = { action = 'open', pair = '[]', neigh_pattern = '[^\\].' },
+      --     ['{'] = { action = 'open', pair = '{}', neigh_pattern = '[^\\].' },
+      --     ['<'] = { action = 'open', pair = '<>', neigh_pattern = '[^%s<\\].', register = { cr = false } },
+      --
+      --     [')'] = { action = 'close', pair = '()', neigh_pattern = '[^\\].' },
+      --     [']'] = { action = 'close', pair = '[]', neigh_pattern = '[^\\].' },
+      --     ['}'] = { action = 'close', pair = '{}', neigh_pattern = '[^\\].' },
+      --     ['>'] = { action = 'close', pair = '<>', neigh_pattern = '[^%s>\\].', register = { cr = false } },
+      --
+      --     ['"'] = { action = 'closeopen', pair = '""', neigh_pattern = '[^\\].', register = { cr = false } },
+      --     ["'"] = { action = 'closeopen', pair = "''", neigh_pattern = '[^&<%a\\].', register = { cr = false } },
+      --     ['`'] = { action = 'closeopen', pair = '``', neigh_pattern = '[^\\].', register = { cr = false } },
+      --   },
+      -- }
+      --
+      -- -- Create symmetrical `$$` pair only in Tex files
+      -- local map_tex = function()
+      --   MiniPairs.map_buf(0, 'i', '$', { action = 'closeopen', pair = '$$' })
+      --   vim.keymap.set('i', "'", "'", { buffer = true })
+      -- end
+      -- vim.api.nvim_create_autocmd('FileType', { pattern = 'tex', callback = map_tex })
 
       require('mini.align').setup()
 

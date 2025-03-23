@@ -8,6 +8,8 @@ require('lazy').setup({
 
   require 'custom/plugins/colorschemes',
 
+  require 'kickstart/plugins/debug',
+
   require 'kickstart/plugins/gitsigns',
 
   require 'kickstart/plugins/which-key',
