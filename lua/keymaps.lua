@@ -41,8 +41,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.keymap.set('n', 'gK', function()
-  local new_config = not vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config { virtual_lines = new_config }
+  local config = vim.diagnostic.config().virtual_lines
+  vim.diagnostic.config { virtual_lines = not config, virtual_text = not not config }
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 -- vim: ts=2 sts=2 sw=2 et
