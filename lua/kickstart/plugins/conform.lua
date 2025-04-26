@@ -3,17 +3,17 @@ return {
     'stevearc/conform.nvim',
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
-    opts = {
-      keys = {
-        {
-          '<leader>df',
-          function()
-            require('conform').format { async = true, lsp_format = 'fallback' }
-          end,
-          mode = '',
-          desc = '[F]ormat buffer',
-        },
+    keys = {
+      {
+        '<leader>lf',
+        function()
+          require('conform').format { async = true, lsp_format = 'fallback' }
+        end,
+        mode = '',
+        desc = 'Format buffer',
       },
+    },
+    opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
         -- Disable "format_on_save lsp_fallback" for languages that don't

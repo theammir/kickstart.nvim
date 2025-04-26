@@ -3,6 +3,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<C-s>', '<cmd>:w<cr>', { desc = 'Quick-save' })
 vim.keymap.set('n', '<leader>q', '<cmd>:confirm qa<cr>', { desc = 'Quit' })
+vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Delete into _' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
@@ -18,7 +19,8 @@ vim.keymap.set('', '<C-u>', '<C-u>zz')
 vim.keymap.set('', '<M-k>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })
 vim.keymap.set('', '<M-j>', '<cmd>m .+1<cr>==', { desc = 'Move line down' })
 
-vim.keymap.set('n', '<leader>dc', '<cmd>cd %:p:h<cr>', { desc = 'Change to current directory' })
+-- I really don't know which category should this one be in.
+vim.keymap.set('n', '<leader>Dc', '<cmd>cd %:p:h<cr>', { desc = 'Change to current directory' })
 
 vim.keymap.set('n', '<leader>ul', '<cmd>Lazy<cr>', { desc = 'Open Lazy' })
 vim.keymap.set('n', '<leader>um', '<cmd>Mason<cr>', { desc = 'Open Mason' })

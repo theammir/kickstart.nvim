@@ -22,7 +22,7 @@ return {
       leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
       -- require('leap.user').set_repeat_keys('<enter>', '<backspace>')
 
-      vim.api.nvim_create_autocmd('ColorScheme', {
+      vim.api.nvim_create_autocmd('VimEnter', {
         callback = function()
           leap.init_highlight(true)
           vim.api.nvim_set_hl(0, 'LeapLabel', {

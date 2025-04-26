@@ -72,6 +72,8 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+vim.o.winborder = 'rounded'
+
 -- Neovide section
 if vim.g.neovide then
   vim.g.neovide_fullscreen = false
@@ -83,13 +85,12 @@ if vim.g.neovide then
   vim.g.neovide_light_angle_degrees = 45
   vim.g.neovide_light_radius = 5
 
-  vim.g.neovide_cursor_vfx_mode = 'pixiedust'
-  vim.g.neovide_cursor_vfx_particle_density = 20.0
-  vim.g.neovide_cursor_vfx_particle_lifetime = 1.5
-  vim.g.neovide_cursor_vfx_particle_speed = 75.0
+  -- vim.g.neovide_cursor_vfx_mode = 'pixiedust'
+  -- vim.g.neovide_cursor_vfx_particle_density = 20.0
+  -- vim.g.neovide_cursor_vfx_particle_lifetime = 1.5
+  -- vim.g.neovide_cursor_vfx_particle_speed = 75.0
 
-  vim.g.neovide_transparency = 0.7
-  vim.g.neovide_normal_transparency = 0.9
+  vim.g.neovide_opacity = 0.5
 
   vim.o.guifont = 'FiraCode Nerd Font:h11'
 end

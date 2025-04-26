@@ -58,7 +58,7 @@ return {
         },
       },
       spec = {
-        { '<leader>d', group = 'Document' },
+        { '<leader>D', group = 'Document' },
         { '<leader>f', group = 'Find' },
         { '<leader>h', group = 'Gitsigns' },
         { '<leader>l', group = 'LSP', mode = { 'n', 'x' } },
