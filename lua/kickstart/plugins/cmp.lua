@@ -58,11 +58,18 @@ return {
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'super-tab',
+        ['<Tab>'] = {
+          function(cmp)
+            cmp.select_and_accept()
+          end,
+          'fallback',
+        },
+        ['<C-h>'] = { 'snippet_backward', 'fallback' },
+        ['<C-l>'] = { 'snippet_forward', 'fallback' },
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
       },
-
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
         -- Adjusts spacing to ensure icons are aligned
