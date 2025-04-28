@@ -60,10 +60,11 @@ return {
         preset = 'super-tab',
         ['<Tab>'] = {
           function(cmp)
-            cmp.select_and_accept()
+            return cmp.select_and_accept()
           end,
           'fallback',
         },
+        ['<S-Tab>'] = { 'fallback' },
         ['<C-h>'] = { 'snippet_backward', 'fallback' },
         ['<C-l>'] = { 'snippet_forward', 'fallback' },
 
