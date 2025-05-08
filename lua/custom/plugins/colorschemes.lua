@@ -39,7 +39,7 @@ return {
     name = 'catppuccin.nvim',
     priority = 1000,
     opts = {
-      transparent_background = true,
+      transparent_background = not vim.g.neovide,
     },
   },
   {

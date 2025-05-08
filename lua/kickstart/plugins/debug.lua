@@ -116,8 +116,12 @@ return {
     }
 
     -- Change breakpoint icons
-    vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
-    vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+    vim.api.nvim_create_autocmd({ 'VimEnter', 'ColorScheme' }, {
+      callback = function()
+        vim.api.nvim_set_hl(0, 'DapBreak', { fg = '#e51400' })
+        vim.api.nvim_set_hl(0, 'DapStop', { fg = '#ffcc00' })
+      end,
+    })
     local breakpoint_icons = vim.g.have_nerd_font
         and { Breakpoint = '', BreakpointCondition = '', BreakpointRejected = '', LogPoint = '', Stopped = '' }
       or { Breakpoint = '●', BreakpointCondition = '⊜', BreakpointRejected = '⊘', LogPoint = '◆', Stopped = '⭔' }

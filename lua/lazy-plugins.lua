@@ -8,7 +8,8 @@ require('lazy').setup({
 
   require 'custom/plugins/colorschemes',
 
-  require 'kickstart/plugins/debug',
+  -- Honestly I'm better off without cluttering my F-key space for now.
+  -- require 'kickstart/plugins/debug',
 
   require 'kickstart/plugins/gitsigns',
 
