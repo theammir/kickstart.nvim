@@ -33,6 +33,7 @@ return {
         lua = { 'stylua' },
         python = { 'ruff_format', 'ruff_organize_imports' },
         c = { 'clang_format' },
+        go = { 'gofumpt', 'golines', 'goimports' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
