@@ -9,6 +9,7 @@
 External Requirements:
 - Basic utils: `git`, `make`, `unzip`, C Compiler (`gcc`)
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+- [fd](https://github.com/sharkdp/fd#installation)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - A [Nerd Font](https://www.nerdfonts.com/): optional, provides various icons
   - if you don't have it set `vim.g.have_nerd_font` in `init.lua` to false
@@ -63,19 +64,7 @@ Don't forget to choose a colorscheme
 
 #### Windows Installation
 
-<details><summary>Windows with Microsoft C++ Build Tools and CMake</summary>
-Installation may require installing build tools and updating the run command for `telescope-fzf-native`
-
-See `telescope-fzf-native` documentation for [more details](https://github.com/nvim-telescope/telescope-fzf-native.nvim#installation)
-
-This requires:
-
-- Install CMake and the Microsoft C++ Build Tools on Windows
-
-```lua
-{'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-```
-</details>
+Installation may require installing Microsoft C++ Built Tools and CMake.
 <details><summary>Windows with gcc/make using chocolatey</summary>
 Alternatively, one can install gcc and make which don't require changing the config,
 the easiest way is to use choco:
