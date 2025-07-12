@@ -7,12 +7,33 @@ return {
     opts = {
       library = {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+        { path = 'snacks.nvim', words = { 'Snacks' } },
       },
     },
   },
   {
     'folke/trouble.nvim',
     opts = {},
+    specs = {
+      'folke/snacks.nvim',
+      opts = function(_, opts)
+        return vim.tbl_deep_extend('force', opts or {}, {
+          picker = {
+            actions = require('trouble.sources.snacks').actions,
+            win = {
+              input = {
+                keys = {
+                  ['<c-t>'] = {
+                    'trouble_open',
+                    mode = { 'n', 'i' },
+                  },
+                },
+              },
+            },
+          },
+        })
+      end,
+    },
     cmd = 'Trouble',
     keys = {
       {
@@ -119,33 +140,32 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', deprecated('grd', require('telescope.builtin').lsp_definitions), 'Goto Definition')
-          map('grd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+          map('gd', deprecated('grd', require('snacks').picker.lsp_definitions), 'Goto Definition')
+          map('grd', require('snacks').picker.lsp_definitions, 'Goto Definition')
 
           -- Find references for the word under your cursor.
-          map('grr', require('telescope.builtin').lsp_references, 'Goto References')
+          map('grr', require('snacks').picker.lsp_references, 'Goto References')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gI', deprecated('gri', require('telescope.builtin').lsp_implementations), 'Goto Implementation')
-          map('gri', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
+          map('gri', require('snacks').picker.lsp_implementations, 'Goto Implementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('grt', require('telescope.builtin').lsp_type_definitions, 'Type Definition')
+          map('grt', require('snacks').picker.lsp_type_definitions, 'Type Definition')
 
           map('<leader>ld', vim.diagnostic.open_float, 'Open diagnostic in float')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ls', deprecated('gD', require('telescope.builtin').lsp_document_symbols), 'Document Symbols')
-          map('gD', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+          map('<leader>ls', deprecated('gD', require('snacks').picker.lsp_symbols), 'Document Symbols')
+          map('gD', require('snacks').picker.lsp_symbols, 'Document Symbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>lS', deprecated('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols), 'Workspace Symbols')
-          map('gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+          map('<leader>lS', deprecated('gW', require('snacks').picker.lsp_workspace_symbols), 'Workspace Symbols')
+          map('gW', require('snacks').picker.lsp_workspace_symbols, 'Workspace Symbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -168,8 +188,10 @@ return {
           ---@return boolean
           local function client_supports_method(client, method, bufnr)
             if vim.fn.has 'nvim-0.11' == 1 then
+              ---@diagnostic disable-next-line: param-type-mismatch
               return client:supports_method(method, bufnr)
             else
+              ---@diagnostic disable-next-line: param-type-mismatch
               return client.supports_method(method, { bufnr = bufnr })
             end
           end
