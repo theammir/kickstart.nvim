@@ -5,6 +5,16 @@
 --
 -- Use the `dependencies` key to specify the dependencies of a particular plugin
 
+local function read_header_file(path)
+  local lines = vim.fn.readfile(path)
+  if vim.tbl_isempty(lines) then
+    if vim.fn.filereadable(path) == 0 then
+      return ''
+    end
+  end
+  return table.concat(lines, '\n')
+end
+
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'folke/snacks.nvim',
@@ -32,8 +42,18 @@ return {
     -- See `:help snacks-picker` and `:help snacks-picker-setup`
     ---@type snacks.Config
     opts = {
-      input = { enabled = true },
-      picker = { enabled = true },
+      dashboard = {
+        preset = {
+          keys = {},
+          header = read_header_file(vim.fn.stdpath 'config' .. '/lua/header'),
+        },
+        sections = {
+          { section = 'header' },
+          { section = 'startup' },
+        },
+      },
+      input = {},
+      picker = {},
     },
     -- See `:help snacks-pickers-sources`
     keys = {

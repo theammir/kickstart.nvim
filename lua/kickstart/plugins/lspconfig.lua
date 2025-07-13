@@ -140,32 +140,32 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', deprecated('grd', require('snacks').picker.lsp_definitions), 'Goto Definition')
-          map('grd', require('snacks').picker.lsp_definitions, 'Goto Definition')
+          map('gd', deprecated('grd', Snacks.picker.lsp_definitions), 'Goto Definition')
+          map('grd', Snacks.picker.lsp_definitions, 'Goto Definition')
 
           -- Find references for the word under your cursor.
-          map('grr', require('snacks').picker.lsp_references, 'Goto References')
+          map('grr', Snacks.picker.lsp_references, 'Goto References')
 
           -- Jump to the implementation of the word under your cursor.
           --  Useful when your language has ways of declaring types without an actual implementation.
-          map('gri', require('snacks').picker.lsp_implementations, 'Goto Implementation')
+          map('gri', Snacks.picker.lsp_implementations, 'Goto Implementation')
 
           -- Jump to the type of the word under your cursor.
           --  Useful when you're not sure what type a variable is and you want to see
           --  the definition of its *type*, not where it was *defined*.
-          map('grt', require('snacks').picker.lsp_type_definitions, 'Type Definition')
+          map('grt', Snacks.picker.lsp_type_definitions, 'Type Definition')
 
           map('<leader>ld', vim.diagnostic.open_float, 'Open diagnostic in float')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ls', deprecated('gD', require('snacks').picker.lsp_symbols), 'Document Symbols')
-          map('gD', require('snacks').picker.lsp_symbols, 'Document Symbols')
+          map('<leader>ls', deprecated('gD', Snacks.picker.lsp_symbols), 'Document Symbols')
+          map('gD', Snacks.picker.lsp_symbols, 'Document Symbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
-          map('<leader>lS', deprecated('gW', require('snacks').picker.lsp_workspace_symbols), 'Workspace Symbols')
-          map('gW', require('snacks').picker.lsp_workspace_symbols, 'Workspace Symbols')
+          map('<leader>lS', deprecated('gW', Snacks.picker.lsp_workspace_symbols), 'Workspace Symbols')
+          map('gW', Snacks.picker.lsp_workspace_symbols, 'Workspace Symbols')
 
           -- Rename the variable under your cursor.
           --  Most Language Servers support renaming across files, etc.
@@ -179,7 +179,7 @@ return {
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
           --  For example, in C this would take you to the header.
-          map('grD', vim.lsp.buf.declaration, 'Goto Declaration')
+          map('grD', Snacks.picker.lsp_declarations, 'Goto Declaration')
 
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
