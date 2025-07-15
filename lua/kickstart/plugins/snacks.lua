@@ -53,7 +53,17 @@ return {
         },
       },
       input = {},
-      picker = {},
+      picker = {
+        sources = {
+          explorer = {
+            auto_close = true,
+            jump = { close = true },
+            layout = {
+              preset = 'vscode',
+            },
+          },
+        },
+      },
     },
     -- See `:help snacks-pickers-sources`
     keys = {
@@ -154,6 +164,7 @@ return {
         function()
           Snacks.picker.explorer()
         end,
+        desc = 'Open Explorer',
       },
 
       {
@@ -161,6 +172,7 @@ return {
         function()
           Snacks.lazygit()
         end,
+        desc = 'Lazygit',
       },
     },
   },

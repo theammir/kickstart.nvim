@@ -3,7 +3,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<C-s>', '<cmd>:w<cr>', { desc = 'Quick-save' })
 vim.keymap.set('n', '<leader>q', '<cmd>:confirm qa<cr>', { desc = 'Quit' })
-vim.keymap.set('n', '<leader>d', '"_d', { desc = 'Delete into _' })
+vim.keymap.set({ 'n', 'x' }, '<leader>d', '"_d', { desc = 'Delete into _' })
 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode

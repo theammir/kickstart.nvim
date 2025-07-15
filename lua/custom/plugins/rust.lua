@@ -1,10 +1,6 @@
 return {
   {
-    -- 'mrcjkb/rustaceanvim',
-
-    dir = '~/projects/rustaceanvim',
-    name = 'rustaceanvim',
-
+    'mrcjkb/rustaceanvim',
     ft = { 'rust' },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
