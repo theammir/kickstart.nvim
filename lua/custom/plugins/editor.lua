@@ -3,14 +3,14 @@ return {
   'airblade/vim-rooter',
   {
     'declancm/maximize.nvim',
-    config = function()
-      local maximize = require 'maximize'
-      maximize.setup()
-
-      vim.keymap.set('n', '<F3>', function()
-        maximize.toggle()
-      end, { desc = 'Maximize split toggle' })
-    end,
+    opts = {},
+    keys = { {
+      '<F3>',
+      function()
+        require('maximize').toggle()
+      end,
+      desc = 'Maximize split toggle',
+    } },
   },
   {
     'ggandor/leap.nvim',
@@ -77,6 +77,7 @@ return {
   },
   {
     'akinsho/toggleterm.nvim',
+    keys = { 'F7' },
     opts = {
       size = 10,
       open_mapping = [[<F7>]],
@@ -90,6 +91,7 @@ return {
   },
   {
     'filipdutescu/renamer.nvim',
+    lazy = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
     },

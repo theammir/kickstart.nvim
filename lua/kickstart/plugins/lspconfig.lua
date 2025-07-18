@@ -11,58 +11,6 @@ return {
       },
     },
   },
-  {
-    'folke/trouble.nvim',
-    opts = {},
-    specs = {
-      'folke/snacks.nvim',
-      opts = function(_, opts)
-        return vim.tbl_deep_extend('force', opts or {}, {
-          picker = {
-            actions = require('trouble.sources.snacks').actions,
-            win = {
-              input = {
-                keys = {
-                  ['<c-t>'] = {
-                    'trouble_open',
-                    mode = { 'n', 'i' },
-                  },
-                },
-              },
-            },
-          },
-        })
-      end,
-    },
-    cmd = 'Trouble',
-    keys = {
-      {
-        '<leader>td',
-        '<cmd>Trouble diagnostics toggle filter.buf=0<cr>',
-        desc = 'Toggle buffer diag',
-      },
-      {
-        '<leader>tD',
-        '<cmd>Trouble diagnostics toggle<cr>',
-        desc = 'Toggle diagnostics',
-      },
-      {
-        '<leader>tl',
-        '<cmd>Trouble loclist toggle<cr>',
-        'Toggle loclist',
-      },
-      {
-        '<leader>tq',
-        '<cmd>Trouble qflist toggle<cr>',
-        'Toggle quickfix',
-      },
-      {
-        '<leader>tt',
-        '<cmd>TodoTrouble toggle<cr>',
-        'Toggle TODO',
-      },
-    },
-  },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -252,15 +200,7 @@ return {
         virtual_text = {
           source = 'if_many',
           spacing = 2,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
+          prefix = vim.g.virtual_symbol,
         },
       }
 

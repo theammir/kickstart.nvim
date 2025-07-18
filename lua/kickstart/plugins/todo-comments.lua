@@ -11,15 +11,9 @@ return {
       },
     },
     search = {
-      args = {
-        '--color=never',
-        '--no-heading',
-        '--with-filename',
-        '--line-number',
-        '--column',
-        '--pcre2',
-      },
-      pattern = [[\b(?!(?:SAFETY\b))(KEYWORDS):]],
+      -- manually exclude SAFETY from search results
+      -- Snacks.picker.todo_comments compatible
+      pattern = [[\b(PERFORMANCE|OPTIMIZE|TESTING|WARNING|PASSED|FAILED|OPTIM|ISSUE|FIXIT|FIXME|PERF|NOTE|WARN|HACK|TODO|TEST|INFO|XXX|FIX|BUG):]],
     },
   },
 }

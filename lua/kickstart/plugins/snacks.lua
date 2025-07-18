@@ -124,6 +124,13 @@ return {
         desc = 'Find Diagnostics',
       },
       {
+        '<leader>ft',
+        function()
+          Snacks.picker.todo_comments()
+        end,
+        desc = 'Find TODOs',
+      },
+      {
         '<leader>fr',
         function()
           Snacks.picker.resume()
