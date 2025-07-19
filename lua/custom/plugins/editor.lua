@@ -1,6 +1,7 @@
 return {
   'tpope/vim-repeat',
   'airblade/vim-rooter',
+  'sitiom/nvim-numbertoggle',
   {
     'declancm/maximize.nvim',
     opts = {},
@@ -36,23 +37,19 @@ return {
   {
     'max397574/better-escape.nvim',
     event = 'InsertEnter',
-    config = function()
-      require('better_escape').setup {
-        mappings = {
-          t = { j = { false } }, -- lazygit navigation fix
-          v = { j = { false } }, -- visual select fix
-        },
-      }
-    end,
+    opts = {
+      mappings = {
+        t = { j = { false } }, -- lazygit navigation fix
+        v = { j = { false } }, -- visual select fix
+      },
+    },
   },
   {
     'nativerv/cyrillic.nvim',
     event = { 'VeryLazy' },
-    config = function()
-      require('cyrillic').setup {
-        no_cyrillic_abbrev = false, -- default
-      }
-    end,
+    opts = {
+      no_cyrillic_abbrev = false, -- default
+    },
   },
   {
     'brenoprata10/nvim-highlight-colors',
@@ -77,7 +74,6 @@ return {
   },
   {
     'akinsho/toggleterm.nvim',
-    keys = { 'F7' },
     opts = {
       size = 10,
       open_mapping = [[<F7>]],
