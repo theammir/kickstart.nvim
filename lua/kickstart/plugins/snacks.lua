@@ -15,6 +15,8 @@ local function read_header_file(path)
   return table.concat(lines, '\n')
 end
 
+---@module 'lazy'
+---@type LazySpec
 return {
   { -- Fuzzy Finder (files, lsp, etc)
     'folke/snacks.nvim',
@@ -69,116 +71,85 @@ return {
     keys = {
       {
         '<leader>fb',
-        function()
-          Snacks.picker.buffers()
-        end,
+        function() Snacks.picker.buffers() end,
         desc = 'Find Buffers',
       },
       {
         '<leader>fh',
-        function()
-          Snacks.picker.help()
-        end,
+        function() Snacks.picker.help() end,
         desc = 'Find Help',
       },
       {
         '<leader>fk',
-        function()
-          Snacks.picker.keymaps()
-        end,
+        function() Snacks.picker.keymaps() end,
         desc = 'Find Keymaps',
       },
       {
         '<leader>ff',
-        function()
-          Snacks.picker.files()
-        end,
+        function() Snacks.picker.files() end,
         desc = 'Find Files',
       },
       {
         '<leader>fs',
-        function()
-          Snacks.picker.pickers()
-        end,
+        function() Snacks.picker.pickers() end,
         desc = 'Find Select Picker',
       },
       {
         '<leader>fw',
-        function()
-          Snacks.picker.grep_word()
-        end,
+        function() Snacks.picker.grep_word() end,
+        mode = { 'n', 'x' },
         desc = 'Find Current Word',
       },
       {
         '<leader>fg',
-        function()
-          Snacks.picker.grep()
-        end,
+        function() Snacks.picker.grep() end,
         desc = 'Find by Grep',
       },
       {
         '<leader>fd',
-        function()
-          Snacks.picker.diagnostics()
-        end,
+        function() Snacks.picker.diagnostics() end,
         desc = 'Find Diagnostics',
       },
       {
         '<leader>ft',
-        function()
-          Snacks.picker.todo_comments()
-        end,
+        function() Snacks.picker.todo_comments() end,
         desc = 'Find TODOs',
       },
       {
         '<leader>fr',
-        function()
-          Snacks.picker.resume()
-        end,
+        function() Snacks.picker.resume() end,
         desc = 'Find Resume',
       },
       {
         '<leader>f.',
-        function()
-          Snacks.picker.recent()
-        end,
+        function() Snacks.picker.recent() end,
         desc = 'Find Recent Files',
       },
       {
         '<leader>f/',
-        function()
-          Snacks.picker.grep_buffers()
-        end,
+        function() Snacks.picker.grep_buffers() end,
         desc = 'Find in Open Files',
       },
       {
         '<leader>/',
-        function()
-          Snacks.picker.lines()
-        end,
+        function() Snacks.picker.lines() end,
         desc = 'Find in Current File',
       },
       {
         '<leader>fn',
-        function()
-          Snacks.picker.files { cwd = vim.fn.stdpath 'config' }
-        end,
+        function() Snacks.picker.files { cwd = vim.fn.stdpath 'config' } end,
         desc = 'Find Neovim Files',
       },
 
       {
         '<leader>e',
-        function()
-          Snacks.picker.explorer()
-        end,
+        function() Snacks.picker.explorer() end,
         desc = 'Open Explorer',
       },
 
       {
         '<leader>g',
-        function()
-          Snacks.lazygit()
-        end,
+        function() Snacks.lazygit() end,
         desc = 'Lazygit',
       },
     },

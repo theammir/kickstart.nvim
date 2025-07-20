@@ -1,3 +1,5 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   'tpope/vim-repeat',
   'airblade/vim-rooter',
@@ -7,9 +9,7 @@ return {
     opts = {},
     keys = { {
       '<F3>',
-      function()
-        require('maximize').toggle()
-      end,
+      function() require('maximize').toggle() end,
       desc = 'Maximize split toggle',
     } },
   },

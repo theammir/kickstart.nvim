@@ -1,12 +1,12 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   'altermo/ultimate-autopair.nvim',
   event = { 'InsertEnter', 'CmdlineEnter' },
   branch = 'v0.6',
   config = function()
     local ua = require 'ultimate-autopair'
-    local prev = function(o)
-      return o.line:sub(o.col - 1, o.col - 1)
-    end
+    local prev = function(o) return o.line:sub(o.col - 1, o.col - 1) end
     ua.init {
       ua.extend_default {
         fastwarp = {
@@ -16,9 +16,7 @@ return {
           {
             "'",
             "'",
-            cond = function(fn, o)
-              return prev(o) == '' or prev(o):match '[^&<\\]'
-            end,
+            cond = function(fn, o) return prev(o) == '' or prev(o):match '[^&<\\]' end,
             suround = true,
             nft = { 'tex' },
             alpha = true,
@@ -28,9 +26,7 @@ return {
         {
           '<',
           '>',
-          cond = function(fn, o)
-            return prev(o) == '' or prev(o):match '[^%s<\\]'
-          end,
+          cond = function(fn, o) return prev(o) == '' or prev(o):match '[^%s<\\]' end,
           dosuround = true,
           space = true,
           multiline = false,

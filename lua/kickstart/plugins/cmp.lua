@@ -32,8 +32,8 @@ return {
       },
       'folke/lazydev.nvim',
     },
-    --- @module 'blink.cmp'
-    --- @type blink.cmp.Config
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
       keymap = {
         -- 'default' (recommended) for mappings similar to built-in completions
@@ -59,9 +59,7 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         preset = 'super-tab',
         ['<Tab>'] = {
-          function(cmp)
-            return cmp.select_and_accept()
-          end,
+          function(cmp) return cmp.select_and_accept() end,
           'fallback',
         },
         ['<S-Tab>'] = { 'fallback' },

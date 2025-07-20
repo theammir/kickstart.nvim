@@ -1,9 +1,14 @@
+---@module 'lazy'
+---@type LazySpec
 return {
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
   -- used for completion, annotations and signatures of Neovim apis
   {
     'folke/lazydev.nvim',
     ft = 'lua',
+    ---@module 'lazydev'
+    ---@type lazydev.Config
+    ---@diagnostic disable-next-line: missing-fields
     opts = {
       library = {
         { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
@@ -15,7 +20,13 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
-      { 'mason-org/mason.nvim', opts = {} },
+      {
+        'mason-org/mason.nvim',
+        ---@module 'mason.settings'
+        ---@type MasonSettings
+        ---@diagnostic disable-next-line: missing-fields
+        opts = {},
+      },
       'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -87,8 +98,7 @@ return {
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
-          map('gd', deprecated('grd', Snacks.picker.lsp_definitions), 'Goto Definition')
-          map('grd', Snacks.picker.lsp_definitions, 'Goto Definition')
+          map('gd', Snacks.picker.lsp_definitions, 'Goto Definition')
 
           -- Find references for the word under your cursor.
           map('grr', Snacks.picker.lsp_references, 'Goto References')
@@ -103,11 +113,12 @@ return {
           map('grt', Snacks.picker.lsp_type_definitions, 'Type Definition')
 
           map('<leader>ld', vim.diagnostic.open_float, 'Open diagnostic in float')
+          map('<leader>lD', function() vim.diagnostic.enable(not vim.diagnostic.is_enabled()) end, 'Toggle Diagnostics')
 
           -- Fuzzy find all the symbols in your current document.
           --  Symbols are things like variables, functions, types, etc.
-          map('<leader>ls', deprecated('gD', Snacks.picker.lsp_symbols), 'Document Symbols')
-          map('gD', Snacks.picker.lsp_symbols, 'Document Symbols')
+          map('<leader>ls', deprecated('gO', Snacks.picker.lsp_symbols), 'Document Symbols')
+          map('gO', Snacks.picker.lsp_symbols, 'Document Symbols')
 
           -- Fuzzy find all the symbols in your current workspace.
           --  Similar to document symbols, except searches over your entire project.
@@ -175,9 +186,7 @@ return {
           end
 
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint) then
-            map('<leader>lh', function()
-              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, 'Toggle Inlay Hints')
+            map('<leader>lh', function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf }) end, 'Toggle Inlay Hints')
           end
         end,
       })
@@ -187,7 +196,6 @@ return {
       vim.diagnostic.config {
         severity_sort = true,
         float = { border = 'rounded', source = 'if_many' },
-        underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
           text = {
             [vim.diagnostic.severity.ERROR] = '󰅚 ',
