@@ -45,13 +45,6 @@ return {
     },
   },
   {
-    'nativerv/cyrillic.nvim',
-    event = { 'VeryLazy' },
-    opts = {
-      no_cyrillic_abbrev = false, -- default
-    },
-  },
-  {
     'brenoprata10/nvim-highlight-colors',
     opts = {},
   },

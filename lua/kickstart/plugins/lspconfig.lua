@@ -18,6 +18,7 @@ return {
   },
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
+    event = 'VeryLazy',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       {
@@ -240,24 +241,6 @@ return {
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
-        --
-        -- rust_analyzer = {
-        --   settings = {
-        -- ['rust-analyzer'] = {
-        --   check = {
-        --     command = 'clippy',
-        --   },
-        --   imports = {
-        --     granularity = {
-        --       group = 'crate',
-        --     },
-        --   },
-        --   procMacro = {
-        --     enable = true,
-        --   },
-        -- },
-        --   },
-        -- },
 
         --  Feel free to add/remove any LSPs here that you want to install via Mason.
         --  They will automatically be installed and setup.
@@ -276,6 +259,12 @@ return {
               },
             },
           },
+        },
+
+        -- This table contains config for all language servers that are *not* installed via Mason.
+        -- Structure is identical to the mason table from above.
+        others = {
+          -- dartls = {},
           texlab = {
             settings = {
               texlab = {
@@ -287,12 +276,6 @@ return {
               },
             },
           },
-        },
-
-        -- This table contains config for all language servers that are *not* installed via Mason.
-        -- Structure is identical to the mason table from above.
-        others = {
-          -- dartls = {},
         },
       }
 

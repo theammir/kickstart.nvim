@@ -12,8 +12,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '\\', '<C-w>s', { desc = 'Horizontal split' })
 vim.keymap.set('n', '|', '<C-w>v', { desc = 'Vertical split' })
 
-vim.keymap.set('n', '<S-h>', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
-vim.keymap.set('n', '<S-l>', '<cmd>tabnext<cr>', { desc = 'Next tab' })
+vim.keymap.set('n', 'H', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
+vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Next tab' })
 vim.keymap.set('', '<C-d>', '<C-d>zz')
 vim.keymap.set('', '<C-u>', '<C-u>zz')
 vim.keymap.set('', '<M-k>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })

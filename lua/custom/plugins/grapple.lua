@@ -6,7 +6,7 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   opts = {
-    scope = 'git', -- also try out "git_branch"
+    scope = 'git_branch',
   },
   keys = {
     { '<leader>a', '<cmd>Grapple toggle<cr>', desc = 'Tag a file' },

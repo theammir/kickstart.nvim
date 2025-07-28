@@ -96,6 +96,4 @@ if vim.g.neovide then
   vim.o.guifont = 'FiraCode Nerd Font:h11'
 end
 
-vim.g.have_nerd_font = true
-
 -- vim: ts=2 sts=2 sw=2 et
