@@ -42,6 +42,9 @@ return {
     priority = 1000,
     opts = {
       transparent_background = not vim.g.neovide,
+      float = {
+        transparent = not vim.g.neovide,
+      },
     },
   },
   {
