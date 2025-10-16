@@ -10,6 +10,7 @@ return {
         callback = function(args)
           vim.keymap.set('n', '<localleader>lc', '<cmd>RustLsp openCargo<cr>', { desc = 'Open current Cargo.toml' })
           vim.keymap.set('n', '<localleader>ld', '<cmd>RustLsp openDocs<cr>', { desc = 'View symbol at docs.rs' })
+          vim.keymap.set('n', '<localleader>lD', '<cmd>Cargo doc --no-deps --document-private-items<cr>', { desc = 'Build local documentation' })
           vim.keymap.set('n', '<localleader>le', '<cmd>RustLsp explainError current<cr>', { desc = 'Explain error on this line' })
           vim.keymap.set('n', '<localleader>lE', '<cmd>RustLsp expandMacro<cr>', { desc = 'Expand Rust macro' })
           vim.keymap.set('n', '<localleader>lr', '<cmd>RustLsp runnables<cr>', { desc = 'View current runnables' })
@@ -25,11 +26,6 @@ return {
             ['rust-analyzer'] = {
               check = {
                 command = 'clippy',
-              },
-              imports = {
-                granularity = {
-                  group = 'crate',
-                },
               },
             },
           },

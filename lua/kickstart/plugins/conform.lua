@@ -35,6 +35,7 @@ return {
         c = { 'clang_format' },
         cpp = { 'clang_format' },
         go = { 'gofumpt', 'golines', 'goimports' },
+        markdown = { 'mdformat' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

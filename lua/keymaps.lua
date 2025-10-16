@@ -40,6 +40,19 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function() vim.hl.on_yank() end,
 })
 
+-- Restore cursor position on file open
+vim.api.nvim_create_autocmd('BufReadPost', {
+  desc = 'Restore cursor position on file open',
+  group = vim.api.nvim_create_augroup('kickstart-restore-cursor', { clear = true }),
+  pattern = '*',
+  callback = function()
+    local line = vim.fn.line '\'"'
+    if line > 1 and line <= vim.fn.line '$' then
+      vim.cmd 'normal! g\'"'
+    end
+  end,
+})
+
 vim.keymap.set('n', 'gK', function()
   local config = vim.diagnostic.config().virtual_lines
   vim.diagnostic.config { virtual_lines = not config, virtual_text = not not config }
