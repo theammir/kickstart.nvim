@@ -18,7 +18,9 @@ return {
     lazy = false,
     config = function()
       local leap = require 'leap'
-      leap.create_default_mappings()
+      vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
+      vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+      vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
 
       leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
       -- require('leap.user').set_repeat_keys('<enter>', '<backspace>')
