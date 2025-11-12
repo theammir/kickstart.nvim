@@ -8,11 +8,13 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(args)
+          vim.keymap.set('n', '<localleader>la', function() vim.cmd.RustLsp { 'codeAction' } end, { desc = 'rust-analyzer code actions' })
           vim.keymap.set('n', '<localleader>lc', '<cmd>RustLsp openCargo<cr>', { desc = 'Open current Cargo.toml' })
           vim.keymap.set('n', '<localleader>ld', '<cmd>RustLsp openDocs<cr>', { desc = 'View symbol at docs.rs' })
           vim.keymap.set('n', '<localleader>lD', '<cmd>Cargo doc --no-deps --document-private-items<cr>', { desc = 'Build local documentation' })
           vim.keymap.set('n', '<localleader>le', '<cmd>RustLsp explainError current<cr>', { desc = 'Explain error on this line' })
           vim.keymap.set('n', '<localleader>lE', '<cmd>RustLsp expandMacro<cr>', { desc = 'Expand Rust macro' })
+          vim.keymap.set('n', '<localleader>lj', '<cmd>RustLsp relatedDiagnostics<cr>', { desc = 'Jump to related diagnostics' })
           vim.keymap.set('n', '<localleader>lr', '<cmd>RustLsp runnables<cr>', { desc = 'View current runnables' })
           vim.keymap.set('n', '<localleader>lt', '<cmd>RustTest<cr>', { desc = 'Run test under cursor' })
 
