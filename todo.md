@@ -29,6 +29,11 @@
   maximize lists or floating windows. His plugin is dead simple and works like a
   charm. I remember spending multiple nights looking for an alternative.
 
+- Do I want to duplicate mappings that I use often to shorter key sequences?
+  Maybe under `<localleader>`. What is `<localleader>` even for? I only use it
+  for current LSP-related mappings. What if it would be nicer to move certain
+  `<leader>f` operations under `<localleader>`?
+
 ## Plugin configuration improvements
 
 - I rarely use other colorschemes, and I don't think it's a good idea to preload
