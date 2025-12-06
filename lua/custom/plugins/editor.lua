@@ -111,4 +111,10 @@ return {
       },
     },
   },
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = { code = { style = 'normal', disable_background = true }, link = { custom = {
+      docsrs = { pattern = 'docs%.rs', icon = ' ' },
+    } } },
+  },
 }

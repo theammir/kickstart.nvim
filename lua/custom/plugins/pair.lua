@@ -10,6 +10,7 @@ return {
       local prev = function(o) return o.line:sub(o.col - 1, o.col - 1) end
       ua.init {
         ua.extend_default {
+          cmap = false,
           config_internal_pairs = {
             {
               "'",
