@@ -44,6 +44,27 @@ return {
       transparent_background = not vim.g.neovide,
       float = {
         transparent = not vim.g.neovide,
+        solid = vim.g.neovide,
+      },
+      integrations = {
+        blink_cmp = {
+          style = 'bordered',
+        },
+        fidget = true,
+        gitsigns = {
+          enabled = true,
+          transparent = not vim.g.neovide,
+        },
+        leap = false,
+        mason = true,
+        nvim_surround = true,
+        ufo = true,
+        render_markdown = true,
+        snacks = {
+          enabled = true,
+          indent_scope_color = 'lavender',
+        },
+        which_key = true,
       },
     },
   },
