@@ -55,6 +55,9 @@ return {
         },
       },
       input = {},
+      explorer = {
+        replace_netrw = true,
+      },
       picker = {
         sources = {
           explorer = {
@@ -109,6 +112,11 @@ return {
         '<leader>fd',
         function() Snacks.picker.diagnostics() end,
         desc = 'Find Diagnostics',
+      },
+      {
+        '<leader>fD',
+        function() Snacks.picker.git_diff() end,
+        desc = 'Find Git Diff',
       },
       {
         '<leader>ft',

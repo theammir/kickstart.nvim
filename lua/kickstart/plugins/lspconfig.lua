@@ -1,6 +1,23 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
+  {
+    'mrjones2014/codesettings.nvim',
+    ft = { 'json', 'jsonc', 'lua' },
+    cmd = { 'Codesettings' },
+    config = function()
+      require('codesettings').setup {
+        live_reload = true,
+      }
+
+      vim.lsp.config('*', {
+        before_init = function(_, config)
+          local c = require 'codesettings'
+          c.with_local_settings(config.name, config)
+        end,
+      })
+    end,
+  },
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
   -- used for completion, annotations and signatures of Neovim apis
   {
@@ -196,6 +213,7 @@ return {
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
+        update_in_insert = false,
         float = { border = 'rounded', source = 'if_many' },
         signs = vim.g.have_nerd_font and {
           text = {
