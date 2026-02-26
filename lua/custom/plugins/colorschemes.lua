@@ -41,6 +41,12 @@ return {
     name = 'catppuccin.nvim',
     priority = 1000,
     opts = {
+      custom_highlights = function(colors)
+        return {
+          FloatBorder = { fg = colors.lavender },
+          BlinkCmpMenuBorder = { fg = colors.lavender },
+        }
+      end,
       transparent_background = not vim.g.neovide,
       float = {
         transparent = not vim.g.neovide,
@@ -57,7 +63,11 @@ return {
         },
         leap = false,
         mason = true,
-        nvim_surround = true,
+        mini = {
+          enabled = true,
+          indent_scope_color = 'lavender',
+        },
+        nvim_surround = false,
         ufo = true,
         render_markdown = true,
         snacks = {

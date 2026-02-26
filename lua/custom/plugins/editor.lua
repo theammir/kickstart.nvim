@@ -13,29 +13,29 @@ return {
       desc = 'Maximize split toggle',
     } },
   },
-  {
-    url = 'https://codeberg.org/andyg/leap.nvim',
-    lazy = false,
-    config = function()
-      local leap = require 'leap'
-      vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
-      vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
-      vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
-
-      leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
-      -- require('leap.user').set_repeat_keys('<enter>', '<backspace>')
-
-      vim.api.nvim_create_autocmd({ 'VimEnter', 'ColorScheme' }, {
-        callback = function()
-          leap.init_highlight(true)
-          vim.api.nvim_set_hl(0, 'LeapLabel', {
-            -- For light themes, set to 'black' or similar.
-            fg = 'red',
-          })
-        end,
-      })
-    end,
-  },
+  -- {
+  --   url = 'https://codeberg.org/andyg/leap.nvim',
+  --   lazy = false,
+  --   config = function()
+  --     local leap = require 'leap'
+  --     vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap-forward)')
+  --     vim.keymap.set({ 'n', 'x', 'o' }, 'S', '<Plug>(leap-backward)')
+  --     vim.keymap.set('n', 'gs', '<Plug>(leap-from-window)')
+  --
+  --     leap.opts.equivalence_classes = { ' \t\r\n', '([{', ')]}', '\'"`' }
+  --     -- require('leap.user').set_repeat_keys('<enter>', '<backspace>')
+  --
+  --     vim.api.nvim_create_autocmd({ 'VimEnter', 'ColorScheme' }, {
+  --       callback = function()
+  --         leap.init_highlight(true)
+  --         vim.api.nvim_set_hl(0, 'LeapLabel', {
+  --           -- For light themes, set to 'black' or similar.
+  --           fg = 'red',
+  --         })
+  --       end,
+  --     })
+  --   end,
+  -- },
   {
     'max397574/better-escape.nvim',
     event = 'InsertEnter',
