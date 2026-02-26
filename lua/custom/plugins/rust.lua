@@ -8,6 +8,11 @@ return {
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client or client.name ~= 'rust_analyzer' then
+            return
+          end
+
           vim.keymap.set('n', '<localleader>la', function() vim.cmd.RustLsp { 'codeAction' } end, { desc = 'rust-analyzer code actions' })
           vim.keymap.set('n', '<localleader>lc', '<cmd>RustLsp openCargo<cr>', { desc = 'Open current Cargo.toml' })
           vim.keymap.set('n', '<localleader>ld', '<cmd>RustLsp openDocs<cr>', { desc = 'View symbol at docs.rs' })
@@ -18,8 +23,7 @@ return {
           vim.keymap.set('n', '<localleader>lr', '<cmd>RustLsp runnables<cr>', { desc = 'View current runnables' })
           vim.keymap.set('n', '<localleader>lt', '<cmd>RustTest<cr>', { desc = 'Run test under cursor' })
 
-          local bufnr = vim.api.nvim_get_current_buf()
-          vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end, { silent = true, buffer = bufnr })
+          vim.keymap.set('n', 'K', function() vim.cmd.RustLsp { 'hover', 'actions' } end, { silent = true, buffer = args.buf })
         end,
       })
       vim.g.rustaceanvim = {
