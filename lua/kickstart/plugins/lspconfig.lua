@@ -5,17 +5,18 @@ return {
     'mrjones2014/codesettings.nvim',
     ft = { 'json', 'jsonc', 'lua' },
     cmd = { 'Codesettings' },
-    config = function()
-      require('codesettings').setup {
-        live_reload = true,
-      }
-
+    init = function()
       vim.lsp.config('*', {
         before_init = function(_, config)
           local c = require 'codesettings'
           c.with_local_settings(config.name, config)
         end,
       })
+    end,
+    config = function()
+      require('codesettings').setup {
+        live_reload = true,
+      }
     end,
   },
   -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins

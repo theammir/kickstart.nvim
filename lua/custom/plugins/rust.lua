@@ -3,7 +3,7 @@
 return {
   {
     'mrcjkb/rustaceanvim',
-    ft = { 'rust' },
+    lazy = false,
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -32,6 +32,7 @@ return {
             ['rust-analyzer'] = {
               check = {
                 command = 'clippy',
+                extraArgs = { '--no-deps' },
               },
             },
           },

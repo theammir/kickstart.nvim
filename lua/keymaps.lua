@@ -16,8 +16,6 @@ vim.keymap.set('n', 'H', '<cmd>tabprev<cr>', { desc = 'Previous tab' })
 vim.keymap.set('n', 'L', '<cmd>tabnext<cr>', { desc = 'Next tab' })
 vim.keymap.set('', '<C-d>', '<C-d>zz')
 vim.keymap.set('', '<C-u>', '<C-u>zz')
-vim.keymap.set('', '<M-k>', '<cmd>m .-2<cr>==', { desc = 'Move line up' })
-vim.keymap.set('', '<M-j>', '<cmd>m .+1<cr>==', { desc = 'Move line down' })
 
 -- I really don't know which category should this one be in.
 vim.keymap.set('n', '<leader>Dc', '<cmd>cd %:p:h<cr>', { desc = 'Change to current directory' })
