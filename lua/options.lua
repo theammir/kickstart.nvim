@@ -3,6 +3,8 @@
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+require('vim._core.ui2').enable()
+
 vim.o.termguicolors = true
 
 vim.g.loaded_netrw = 1

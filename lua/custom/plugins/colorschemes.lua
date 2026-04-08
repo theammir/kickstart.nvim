@@ -68,6 +68,7 @@ return {
           indent_scope_color = 'lavender',
         },
         nvim_surround = false,
+        treesitter_context = true,
         ufo = true,
         render_markdown = true,
         snacks = {
