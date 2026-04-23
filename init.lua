@@ -2,6 +2,10 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+-- I have no idea what libuv returns for windows
+---@type "Darwin" | "Linux"
+vim.g.os = vim.loop.os_uname().sysname
+
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 

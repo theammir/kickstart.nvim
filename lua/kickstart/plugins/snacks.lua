@@ -89,7 +89,18 @@ return {
       },
       {
         '<leader>ff',
-        function() Snacks.picker.files() end,
+        function()
+          Snacks.picker.files {
+            exclude = (function()
+              local user_home = '/Users/' .. vim.fn.expand '$USER'
+              if vim.g.os == 'Darwin' and vim.fn.getcwd(0) == user_home then
+                return { 'Library/', 'Movies/', 'Music/', 'Pictures/' }
+              else
+                return {}
+              end
+            end)(),
+          }
+        end,
         desc = 'Find Files',
       },
       {
