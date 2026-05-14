@@ -94,7 +94,7 @@ return {
             exclude = (function()
               local user_home = '/Users/' .. vim.fn.expand '$USER'
               if vim.g.os == 'Darwin' and vim.fn.getcwd(0) == user_home then
-                return { 'Library/', 'Movies/', 'Music/', 'Pictures/' }
+                return { 'Downloads/', 'Library/', 'Movies/', 'Music/', 'Pictures/' }
               else
                 return {}
               end
