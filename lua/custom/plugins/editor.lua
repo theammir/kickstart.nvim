@@ -1,6 +1,11 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
+  {
+    'theammir/vibesigns.nvim',
+    dependencies = { 'lewis6991/gitsigns.nvim' },
+    opts = {},
+  },
   'tpope/vim-repeat',
   'airblade/vim-rooter',
   'sitiom/nvim-numbertoggle',
