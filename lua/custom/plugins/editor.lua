@@ -1,11 +1,6 @@
 ---@module 'lazy'
 ---@type LazySpec
 return {
-  {
-    'theammir/vibesigns.nvim',
-    dependencies = { 'lewis6991/gitsigns.nvim' },
-    opts = {},
-  },
   'tpope/vim-repeat',
   'airblade/vim-rooter',
   'sitiom/nvim-numbertoggle',
@@ -121,5 +116,15 @@ return {
     opts = { code = { style = 'normal', disable_background = true }, link = { custom = {
       docsrs = { pattern = 'docs%.rs', icon = ' ' },
     } } },
+  },
+  {
+    'theammir/vibesigns.nvim',
+    dependencies = { 'lewis6991/gitsigns.nvim' },
+    opts = {
+      agent_trailers = {
+        ['Made-with'] = { 'Cursor', 'jcode' },
+        ['Agent'] = { '.*' },
+      },
+    },
   },
 }
